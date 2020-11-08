@@ -1,6 +1,6 @@
 <h3>Orbit Report</h3>
 <table class= "table">
-    <!-- <thead>  -->
+    <thead>
    <tr class="header-row">
       <th class="sortable">Name</th>
       <th class="sortable">Type</th>
@@ -8,15 +8,16 @@
       <th>Orbit Type</th>
       <th>Launch Date</th>
    </tr>
-<!-- </thead> -->
-<!-- <tbody>  -->
+</thead>
+ <tbody>
    
-     <tr *ngFor ="let satellite of satellites"> 
+     <tr *ngFor ="let satellite of satellites" [class.warning]="satellite.shouldShowWarning()"> 
          <td>{{satellite.name}}</td>
-         <td>{{satellite.type}}</td>
+         <td [class.warning]= "satellite.shouldShowWarning()">{{satellite.type}}</td>
          <td>{{satellite.operational}}</td>
          <td>{{satellite.orbitType}}</td>
          <td>{{satellite.launchDate}}</td>
          </tr>
-        <!-- </tbody> -->
+        </tbody>
 </table>
+
